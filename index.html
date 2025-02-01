@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Rick and Morty App</title>
+  </head>
+  <body>
+    <div id="header">
+      <span>Filtry:</span>
+      <input type="text" id="filterText" placeholder="Wyszukaj po nazwie" />
+      <input type="radio" name="status" id="Alive" checked /><label for="Alive"
+        >Żywy</label
+      >
+      <input type="radio" name="status" id="Dead" /><label for="Dead"
+        >Martwy</label
+      >
+      <input type="radio" name="status" id="unknown" /><label for="unknown"
+        >Nieznany</label
+      >
+    </div>
+    <div id="main">
+      <div id="characters"></div>
+    </div>
+    <div id="footer">
+      <div id="buttonContainer">
+        <button id="prevPage">⭠</button>
+        <button id="nextPage">⭢</button>
+      </div>
+      <div id="addCharacter">
+        <h3>Stwórz postać</h3>
+        <form id="characterForm">
+          <input type="text" id="name" placeholder="Nazwa" />
+          <select id="selectStatus">
+            <option value="Alive">Żywy</option>
+            <option value="Dead">Martwy</option>
+            <option value="unknown">Nieznany</option>
+          </select>
+          <input type="text" id="species" placeholder="Gatunek" />
+          <button id="submit" type="submit">Stwórz</button>
+        </form>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
