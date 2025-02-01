@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Rick and Morty App</title>
+  </head>
+  <body>
+    <div id="header">
+      <span>Filtry:</span>
+      <input type="text" id="filterText" placeholder="Wyszukaj po nazwie" />
+      <input type="radio" name="status" id="Alive" checked /><label for="Alive"
+        >Żywy</label
+      >
+      <input type="radio" name="status" id="Dead" /><label for="Dead"
+        >Martwy</label
+      >
+      <input type="radio" name="status" id="unknown" /><label for="unknown"
+        >Nieznany</label
+      >
+    </div>
+    <div id="main">
+      <div id="characters"></div>
+    </div>
+    <div id="footer">
+      <button id="prevPage">⭠</button>
+      <button id="nexPage">⭢</button>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>

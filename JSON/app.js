@@ -1,3 +1,5 @@
+// POBRANIE 20 POSTACI I WYŚWIETLENIE W KONSOLI
+
 // fetch("https://rickandmortyapi.com/api/character/?page=1")
 //   .then(response => response.json())
 //   .then(data => {
@@ -9,15 +11,18 @@
 //       image: person.image
 //     }));
 //     console.log(JSON.stringify({ characters }, null, 1));
+//   })
+//   .catch((error) => {
+//     console.error("Błąd:", error);
 //   });
 
 let currentPage = 1;
 let currentFilter = "";
 let currentStatus = "";
 let allCharacters = [];
-
 const charactersContainer = document.querySelector("#characters");
 const filterInput = document.querySelector("#filterText");
+filterText.style.borderRadius = "5px";
 const header = document.querySelector("#header");
 const statusFilters = document.querySelectorAll("input[name='status']");
 header.style.display = "flex";
@@ -70,6 +75,7 @@ characterFormChildren.forEach((element) => {
   element.style.display = "flex";
   element.style.padding = "5px";
   element.style.justifyContent = "center";
+  element.style.borderRadius = "10px";
 });
 const submit = document.querySelector("#submit");
 submit.style.backgroundColor = "#4ea8f9";
@@ -91,7 +97,10 @@ function fetchAllCharacters() {
     .catch((error) => {
       console.error("Błąd:", error);
       charactersContainer.innerHTML =
-        "<p>Wystąpił błąd przy ładowaniu postaci.</p>";
+        "<h1 id='errorMessage'>Wystąpił błąd przy ładowaniu postaci.</h1>";
+      const errorMessage = document.querySelector("#errorMessage");
+      errorMessage.style.textAlign = "center";
+      errorMessage.style.color = "#FF0000";
     });
 }
 
@@ -161,6 +170,7 @@ function createCharacterCard(person) {
   speciesElement.textContent = `Gatunek: ${person.species}`;
   const deleteButton = document.createElement("button");
   deleteButton.textContent = "Usuń postać";
+  deleteButton.style.borderRadius = "5px";
   deleteButton.style.cursor = "pointer";
   deleteButton.onclick = () => deleteCharacter(person.id);
   character.appendChild(heading);
@@ -203,7 +213,7 @@ characterForm.addEventListener("submit", (event) => {
     .then(() => {
       displayCharacters();
     })
-    .catch((error) => console.error(error));
+    .catch((error) => console.error("Błąd:", error));
 });
 
 filterInput.addEventListener("input", (event) => {
@@ -223,14 +233,12 @@ statusFilters.forEach((radio) => {
 prevPage.addEventListener("click", () => {
   if (currentPage > 1) {
     currentPage--;
-    console.log("Przechodzimy do strony: " + currentPage);
     displayCharacters();
   }
 });
 
 nextPage.addEventListener("click", () => {
   currentPage++;
-  console.log("Przechodzimy do strony: " + currentPage);
   displayCharacters();
 });
 

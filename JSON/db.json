@@ -106,13 +106,6 @@
       "image": "https://rickandmortyapi.com/api/character/avatar/15.jpeg"
     },
     {
-      "id": "16",
-      "name": "Amish Cyborg",
-      "status": "Dead",
-      "species": "Alien",
-      "image": "https://rickandmortyapi.com/api/character/avatar/16.jpeg"
-    },
-    {
       "id": "17",
       "name": "Annie",
       "status": "Alive",
